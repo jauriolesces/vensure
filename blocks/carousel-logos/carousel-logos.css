@@ -1,0 +1,190 @@
+/*
+ * Block: carousel-logos — logo carousel (partner logos in white tiles)
+ * Design migrated from https://vensure.com/ (.elementor-element-1b0b263)
+ * Values from source computed styles — see migration-work/carousel-logos-extracted.css
+ */
+
+/*
+ * SECTION-LEVEL CONTEXT (not styled by this block):
+ * In the source, the carousel + its heading "Your Gateway to Top-Tier Benefits" share a
+ * single light-grey band: background rgb(246, 246, 246) (~ brand --light-color #f5f5f5),
+ * padding 50px top / 80px bottom; the H2 is 40px / 44px, font-weight 700, color
+ * var(--text-color), text-align center.
+ * The heading is authored as section-level default content (a sibling of this block), so
+ * the grey band and heading centering belong to the SECTION, applied via Section Metadata
+ * (Style "light-grey", already mapped in styles.css). Scoping the band to the block wrapper
+ * alone would leave the sibling heading on a white background and create a visual seam, so it
+ * is intentionally omitted here. Below are only the genuine block-level (logo-tile) styles.
+ */
+
+.carousel-logos {
+  position: relative;
+  padding: 8px 0;
+}
+
+.carousel-logos .carousel-logos-slides-container {
+  position: relative;
+}
+
+.carousel-logos .carousel-logos-slides,
+.carousel-logos .carousel-logos-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal track. Source: display flex, align-items center, 10px gap between slides. */
+.carousel-logos .carousel-logos-slides {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-logos .carousel-logos-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * Each slide is a logo tile. Source desktop shows 4 logos per view (slides_to_show: 4),
+ * tablet 3, mobile 2. The default carousel JS sets flex: 0 0 100% — override so multiple
+ * logos are visible per view. Base (mobile) = 2 per view.
+ */
+.carousel-logos .carousel-logos-slide {
+  flex: 0 0 calc((100% - 10px) / 2);
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: auto;
+}
+
+/* The image cell holds the logo picture. Reset any absolute positioning from base carousel. */
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image {
+  width: 100%;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image p {
+  margin: 0;
+}
+
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image picture {
+  position: static;
+  inset: auto;
+  display: block;
+}
+
+/*
+ * The logo image IS the white tile. Source: img has white background, padding 20px 50px,
+ * object-fit contain, fixed 140px height, full color (no grayscale/opacity treatment).
+ */
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-image img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  padding: 20px 50px;
+  object-fit: contain;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Source content cell is empty for logo slides — hide it so it does not add height. */
+.carousel-logos .carousel-logos-slide .carousel-logos-slide-content:empty {
+  display: none;
+}
+
+/* Slide indicators (only rendered for multi-slide carousels) */
+.carousel-logos .carousel-logos-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 12px;
+  padding: 12px;
+  line-height: 0;
+}
+
+.carousel-logos .carousel-logos-slide-indicator button {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #dadada;
+  transition: background-color 0.2s;
+}
+
+.carousel-logos .carousel-logos-slide-indicator button:disabled,
+.carousel-logos .carousel-logos-slide-indicator button:hover,
+.carousel-logos .carousel-logos-slide-indicator button:focus-visible {
+  background-color: var(--accent-color);
+}
+
+/* Prev/next navigation buttons */
+.carousel-logos .carousel-logos-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-logos .carousel-logos-navigation-buttons button {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: rgb(19 19 19 / 25%);
+  transition: background-color 0.2s;
+  pointer-events: auto;
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button:hover,
+.carousel-logos .carousel-logos-navigation-buttons button:focus-visible {
+  background-color: var(--accent-color);
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid #fff;
+  border-bottom: 0;
+  border-left: 0;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-logos .carousel-logos-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* Tablet: 3 logos per view (source slides_to_show_tablet: 3) */
+@media (width >= 600px) {
+  .carousel-logos .carousel-logos-slide {
+    flex: 0 0 calc((100% - 20px) / 3);
+  }
+}
+
+/* Desktop: 4 logos per view (source slides_to_show: 4) */
+@media (width >= 900px) {
+  .carousel-logos .carousel-logos-slide {
+    flex: 0 0 calc((100% - 30px) / 4);
+  }
+}

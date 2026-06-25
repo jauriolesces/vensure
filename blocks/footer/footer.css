@@ -1,20 +1,196 @@
+/* ===== Vensure footer ===== */
+
+:root {
+  --footer-bg: #f5f5f5;
+  --footer-heading: #6c6f70;
+  --footer-link: #000;
+  --footer-orange: #e8540f;
+  --footer-orange-hover: #c8470c;
+}
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--footer-bg);
+  font-family: Montserrat, sans-serif;
+  color: var(--footer-link);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 48px 32px;
 }
 
-footer .footer p {
+footer .footer-column h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--footer-heading);
+  margin: 0 0 20px;
+  text-transform: none;
+}
+
+footer .footer-column ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .footer-column ul li {
+  margin-bottom: 12px;
+}
+
+footer .footer-column a {
+  color: var(--footer-link);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+footer .footer-column a:hover {
+  color: var(--footer-orange);
+  text-decoration: underline;
+}
+
+footer .footer-column p {
+  margin: 0 0 14px;
+  font-size: 15px;
+}
+
+/* ===== brand column ===== */
+footer .footer-brand img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* legal links: inline row */
+footer .footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 18px !important;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer-legal li {
+  margin-bottom: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer-legal a {
+  font-size: 14px;
+}
+
+/* social icons row */
+footer .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px !important;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+footer .footer-social li {
+  margin-bottom: 0;
+}
+
+footer .footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--footer-orange);
+  color: #fff !important;
+  font-size: 0;
+  transition: background-color 0.2s ease;
+}
+
+footer .footer-social-icon::before {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+footer .footer-social-icon:hover {
+  background: var(--footer-orange-hover);
+  text-decoration: none;
+}
+
+footer .footer-social-facebook::before { content: 'f'; }
+footer .footer-social-twitter::before { content: 'X'; }
+
+footer .footer-social-linkedin::before {
+  content: 'in';
+  font-size: 12px;
+}
+
+footer .footer-social-instagram::before {
+  content: 'IG';
+  font-size: 12px;
+}
+
+footer .footer-social-youtube::before {
+  content: '▶';
+  font-size: 13px;
+}
+
+/* buttons */
+footer .footer-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+footer .footer-btn-outline {
+  border: 1px solid var(--footer-orange);
+  color: var(--footer-orange) !important;
+}
+
+footer .footer-btn-outline:hover {
+  background: var(--footer-orange);
+  color: #fff !important;
+  text-decoration: none;
+}
+
+footer .footer-btn-solid {
+  background: var(--footer-orange);
+  color: #fff !important;
+}
+
+footer .footer-btn-solid:hover {
+  background: var(--footer-orange-hover);
+  text-decoration: none;
+}
+
+/* chat column: phones + badges */
+footer .footer-column p a[href^='tel:'] {
+  color: var(--footer-orange);
+  font-weight: 600;
+}
+
+footer .footer-column img[alt*='G2'],
+footer .footer-column img[alt*='Medal'],
+footer .footer-column img[alt*='Users'] {
+  height: 72px;
+  width: auto;
+  margin: 12px 8px 0 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* ===== desktop: 4 columns ===== */
+@media (width >= 768px) {
+  footer .footer-content {
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
   }
 }

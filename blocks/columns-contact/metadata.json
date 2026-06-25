@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-contact",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-06-25T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://vensure.com/",
+    "originPage": "VensureHR homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "contact-cta-testimonial",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 columns: image + heading + text + CTA | testimonial quote + links + video thumbnail",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "contact / help CTA paired with a testimonial or supporting media",
+      "two-column closing sections mixing CTA and social proof"
+    ],
+    "notSuitableFor": [
+      "simple text + image intros (use columns-text-image)",
+      "card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T00:00:00.000Z"
+  }
+}

@@ -34,15 +34,69 @@
     ]
   },
   {
+    "id": "cards-services",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-value",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
     ]
   },
   {
+    "id": "carousel-content",
+    "components": [
+      "carousel-content-item"
+    ]
+  },
+  {
+    "id": "carousel-logos",
+    "components": [
+      "carousel-logos-item"
+    ]
+  },
+  {
     "id": "carousel",
     "components": [
       "carousel-item"
+    ]
+  },
+  {
+    "id": "columns-contact",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "columns-text-image",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
@@ -89,6 +143,10 @@
     "components": [
       "tabs-item"
     ]
+  },
+  {
+    "id": "video-process",
+    "components": []
   },
   {
     "id": "video",

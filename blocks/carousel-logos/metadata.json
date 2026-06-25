@@ -1,0 +1,37 @@
+{
+  "variantName": "carousel-logos",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-06-25T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://vensure.com/",
+    "originPage": "VensureHR homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "logo-carousel",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "rotating slides, each a single partner logo image",
+    "buttonCount": 0,
+    "imageCount": 5
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "partner / brand logo strips",
+      "image-only rotating galleries"
+    ],
+    "notSuitableFor": [
+      "text content carousels (use carousel-content)",
+      "full-bleed hero image carousels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T00:00:00.000Z"
+  }
+}

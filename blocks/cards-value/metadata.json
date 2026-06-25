@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-value",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-06-25T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://vensure.com/",
+    "originPage": "VensureHR homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "value-props",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "row of value-prop cards, each image/icon + short label",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "value proposition rows with icon + short statement",
+      "benefit highlight grids"
+    ],
+    "notSuitableFor": [
+      "linked navigation service grids",
+      "cards with long body copy"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T00:00:00.000Z"
+  }
+}

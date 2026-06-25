@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-text-image",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-06-25T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://vensure.com/",
+    "originPage": "VensureHR homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "text-image-split",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 columns: heading + paragraph | image",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "intro sections with text on one side and an illustrative image on the other",
+      "feature explainer rows"
+    ],
+    "notSuitableFor": [
+      "contact CTA + testimonial layouts (use columns-contact)",
+      "three-or-more column layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T00:00:00.000Z"
+  }
+}

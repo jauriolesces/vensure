@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-25T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://vensure.com/",
+    "originPage": "VensureHR homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "cta-banner",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraphs + single CTA on full-width colored band",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width colored CTA bands with heading, copy, and a single button",
+      "mid-page conversion banners"
+    ],
+    "notSuitableFor": [
+      "photographic hero intros",
+      "card grids or multi-column layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-25T00:00:00.000Z"
+  }
+}

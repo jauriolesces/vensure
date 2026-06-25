@@ -1,0 +1,98 @@
+/*
+ * hero-banner — centered call-to-action band
+ * Source: vensure.com home, .elementor-element-59f71c4
+ * Centered grey text on white background, accent-outline button.
+ * All values extracted from source computed styles.
+ */
+
+/* Full-width band: override the section's 1200px content clamp. */
+.hero-banner-container .hero-banner-wrapper {
+  max-width: 100%;
+}
+
+.hero-banner {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 48px 24px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Empty first row (decorative corner image in source) — collapse it. */
+.hero-banner > div:first-child:empty,
+.hero-banner > div:first-child > div:empty {
+  display: none;
+}
+
+/* Constrain the centered content. */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-banner > div > div {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.hero-banner h2 {
+  margin: 5px 0 30px;
+  color: var(--text-color);
+  font-size: var(--heading-size-xl); /* mobile 28px / desktop 40px */
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.hero-banner p {
+  margin: 0 0 18px;
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+}
+
+/* Emphasis paragraph ("We take you through…") sits just before the CTA. */
+.hero-banner p:has(+ .button-container),
+.hero-banner .button-container ~ p {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+/* CTA: accent-outline (ghost) button — override the global solid-orange button. */
+.hero-banner .button-container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.hero-banner a.button:any-link {
+  margin: 0;
+  padding: 13px 30px;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.hero-banner a.button:any-link:hover,
+.hero-banner a.button:any-link:focus {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .hero-banner {
+    padding: 80px 50px;
+  }
+
+  .hero-banner h2 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}

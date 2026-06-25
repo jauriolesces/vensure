@@ -1,0 +1,170 @@
+/* Block: hero-lead — full-bleed lifestyle photo with dark overlay lead-capture card.
+   Values extracted from vensure.com homepage hero computed styles. */
+
+/* EDS gotcha: hero is full width — defeat the section max-width/padding wrapper */
+.hero-lead-container .hero-lead-wrapper {
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Section/background container */
+.hero-lead {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 420px;
+  padding: 48px 24px;
+  background-color: rgb(108 111 112); /* fallback under the photo */
+  overflow: hidden;
+}
+
+/* Background image layer (authored row 1 — the picture cell) */
+.hero-lead .hero-lead-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+}
+
+.hero-lead .hero-lead-bg p {
+  margin: 0;
+  height: 100%;
+}
+
+.hero-lead .hero-lead-bg picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-lead .hero-lead-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* Content row positions the overlay card above the background */
+.hero-lead .hero-lead-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Dark overlay card */
+.hero-lead .hero-lead-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 570px;
+  padding: 32px 24px;
+  border-radius: 20px;
+  background-color: rgb(55 55 55 / 90%);
+  color: #fff;
+}
+
+/* H1 — 64px desktop / scaled for mobile, 700, line-height 68px, white */
+.hero-lead .hero-lead-card h1 {
+  margin: 5px 0 20px;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--heading-font-size-xxl); /* 36px mobile, 64px desktop */
+  line-height: 1.06;
+  color: #fff;
+}
+
+.hero-lead .hero-lead-card h1 em {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Supporting paragraph — 18px / 400 / line-height 26px, white */
+.hero-lead .hero-lead-card p {
+  margin: 0 0 20px;
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+}
+
+/* Eyebrow ("Request a Call") — orange, uppercase, letter-spaced */
+.hero-lead .hero-lead-card p.hero-lead-eyebrow {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero-lead .hero-lead-card p.hero-lead-eyebrow strong {
+  color: rgb(255 127 57);
+  font-weight: 700;
+}
+
+/* Lead-capture form fields (white input, orange Get Started button) */
+.hero-lead .hero-lead-card input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+}
+
+.hero-lead .hero-lead-card button {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 12px 25px;
+  border: 2px solid rgb(209 59 0);
+  border-radius: 5px;
+  background-color: rgb(209 59 0);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hero-lead .hero-lead-card button:hover {
+  background-color: rgb(186 53 0);
+  border-color: rgb(186 53 0);
+}
+
+/* Desktop — card sized and pinned to the right over the photo */
+@media (width >= 900px) {
+  .hero-lead {
+    justify-content: flex-end;
+    min-height: 760px;
+    padding: 80px 100px 130px;
+  }
+
+  .hero-lead .hero-lead-content {
+    justify-content: flex-end;
+    max-width: 1140px;
+  }
+
+  .hero-lead .hero-lead-card {
+    width: 570px;
+    max-width: 570px;
+    padding: 46px;
+  }
+
+  .hero-lead .hero-lead-card h1 {
+    line-height: 68px;
+  }
+}

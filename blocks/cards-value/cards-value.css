@@ -1,0 +1,198 @@
+/* Block: cards-value — value-prop card row ("You The Client") */
+
+/* Extracted from vensure.com source computed styles. */
+
+/* Each .cards-value is a SEPARATE block instance = one card. The block JS
+   converts the single row into <ul><li>; the cards stack vertically (one card
+   per block) separated by 20px gaps. */
+
+/* Single card: the <li> is the white box with shadow. */
+.cards-value > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-value > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 15px 30px 15px 20px;
+  background-color: #fff;
+  box-shadow: rgb(0 0 0 / 25%) 0 0 15px 0;
+  position: relative;
+
+  /* Uniform card height across all cards. Sized to hold a two-line title
+     (2 × 26px line-height + 15px top/bottom padding ≈ 82px) so cards whose
+     titles wrap match the single-line cards. Content stays vertically centered. */
+  min-height: 88px;
+  box-sizing: border-box;
+}
+
+/* Stack consecutive value-prop blocks with 20px vertical gap (matches source
+   parent flex gap). Each block lives in its own .cards-value-wrapper. */
+.cards-value-wrapper + .cards-value-wrapper {
+  margin-top: 20px;
+}
+
+/* Colored icon on the left of the card (the source icon-box icon, ~50x50). */
+.cards-value .cards-value-card-image {
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
+  line-height: 0;
+}
+
+.cards-value .cards-value-card-image picture,
+.cards-value .cards-value-card-image img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Title text on the right of the card. */
+.cards-value .cards-value-card-body {
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.cards-value .cards-value-card-body h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--text-color);
+  text-transform: none;
+}
+
+.cards-value .cards-value-card-body :is(h1, h2, h4, h5, h6, p) {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--text-color);
+}
+
+/* Each card has its own distinct themed icon (extracted SVGs injected by
+   cards-value.js into the image cell). No shared check badge. */
+
+/* ===== "You The Client" section: two-column layout =====
+   Source: flex row (gap 30px) — decorative graphic left (~400px), the four
+   value cards stacked on the right (~565px). The section holds one
+   default-content-wrapper (graphic + eyebrow) followed by four
+   .cards-value-wrapper blocks. Use grid so the graphic spans all card rows. */
+@media (width >= 900px) {
+  main .section.cards-value-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+
+    /* Pack card rows from the top with an exact uniform 20px gap between every
+       card. align-content:start sends all leftover height (the graphic column is
+       taller than the 4 cards) to the bottom instead of between the rows, so the
+       first card's gap matches the rest. The graphic centers itself via
+       align-self below. */
+    align-content: start;
+    grid-auto-rows: min-content;
+    gap: 20px 40px;
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: var(--section-padding) 24px;
+  }
+
+  main .section.cards-value-container > .default-content-wrapper {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: center;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main .section.cards-value-container > .cards-value-wrapper {
+    grid-column: 2;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* tighten vertical gap between stacked cards in grid (row-gap handles it) */
+  main .section.cards-value-container > .cards-value-wrapper + .cards-value-wrapper {
+    margin-top: 0;
+  }
+}
+
+/* Decorative left graphic: dotted ring (circle-bg) layered behind the photo,
+   with the "You The Client" eyebrow above. */
+
+/* Source composite (measured): dotted ring 472px (back), circular 24/7 photo
+   305px (mid, ~0.65 of ring), VensureHR logo 140px (front), eyebrow below.
+   The graphic stage is sized to the photo; the larger ring overflows it. */
+.cards-value-container > .default-content-wrapper {
+  position: relative;
+  width: 305px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(1) {
+  /* dotted ring background — 472/305 ≈ 1.55x the photo, centered behind it */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 155%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(1) img {
+  width: 100%;
+  height: auto;
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(2) {
+  /* the 24/7 photo, on top of the ring */
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(2) img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* VensureHR logo overlaid on the photo (front layer, ~140px wide). */
+.cards-value-container > .default-content-wrapper p:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  width: 140px;
+  height: 40px;
+  transform: translateX(-50%);
+  background: url('/content/images/logo-vensurehr.svg') no-repeat center / contain;
+  z-index: 2;
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(3) {
+  /* "You The Client" eyebrow */
+  position: relative;
+  z-index: 2;
+  margin-top: 16px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+.cards-value-container > .default-content-wrapper p:nth-of-type(3) strong {
+  color: var(--accent-color);
+}

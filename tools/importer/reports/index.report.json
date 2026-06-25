@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://vensure.com/",
+  "path": "index",
+  "timestamp": "2026-06-25T22:30:05.382Z",
+  "title": "VensureHR is HR | Payroll | Employee Benefits | Hiring",
+  "template": "homepage",
+  "blocks": [
+    "hero-lead",
+    "cards-services",
+    "columns-text-image",
+    "video-process",
+    "carousel-content",
+    "hero-banner",
+    "cards-value",
+    "cards-value",
+    "cards-value",
+    "cards-value",
+    "carousel-logos",
+    "columns-contact"
+  ]
+}

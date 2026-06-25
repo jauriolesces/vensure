@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://vensure.com/"
+      ],
+      "representativeUrl": "https://vensure.com/",
+      "coverageGaps": [],
+      "description": "Vensure HR homepage with hero/lead-capture, services link grid, HR assessment intro, video, content carousel, scale CTA, value-prop cards, benefits partner logo carousel, and contact CTA",
+      "blocks": [
+        { "name": "hero-lead", "instances": [".elementor-element-85cbbaf"] },
+        { "name": "cards-services", "instances": [".elementor-element-40ea48d"] },
+        { "name": "columns-text-image", "instances": [".elementor-element-e9ed42f"] },
+        { "name": "video-process", "instances": [".elementor-element-4d121c6"] },
+        { "name": "carousel-content", "instances": [".elementor-element-9811182"] },
+        { "name": "hero-banner", "instances": [".elementor-element-59f71c4"] },
+        { "name": "cards-value", "instances": [".elementor-element-11cadc4 .graphic-section-item"] },
+        { "name": "carousel-logos", "instances": [".elementor-element-1b0b263"] },
+        { "name": "columns-contact", "instances": [".elementor-element-8a970b0"] }
+      ],
+      "sections": [
+        { "id": "rc2", "name": "Hero lead-capture", "selector": ".elementor-element-85cbbaf", "style": "hero-photo-dark", "blocks": ["hero-lead"], "defaultContent": [] },
+        { "id": "rc3", "name": "Services link grid", "selector": ".elementor-element-40ea48d", "style": null, "blocks": ["cards-services"], "defaultContent": [] },
+        { "id": "rc4", "name": "HR assessment intro", "selector": ".elementor-element-e9ed42f", "style": null, "blocks": ["columns-text-image"], "defaultContent": [] },
+        { "id": "rc5", "name": "Understanding Our Process video", "selector": ".elementor-element-23c248e", "style": null, "blocks": ["video-process"], "defaultContent": [".elementor-element-23c248e .elementor-widget-text-editor h2"] },
+        { "id": "rc6", "name": "Content carousel", "selector": ".elementor-element-9811182", "style": "light-grey", "blocks": ["carousel-content"], "defaultContent": [] },
+        { "id": "rc7", "name": "Ready to modernize CTA", "selector": ".elementor-element-59f71c4", "style": "accent", "blocks": ["hero-banner"], "defaultContent": [] },
+        { "id": "rc8", "name": "You The Client value props", "selector": ".elementor-element-11cadc4", "style": null, "blocks": ["cards-value"], "defaultContent": [".elementor-element-11cadc4 .elementor-widget-text-editor"] },
+        { "id": "rc9", "name": "Partner logo carousel", "selector": ".elementor-element-432c0fa", "style": null, "blocks": ["carousel-logos"], "defaultContent": [".elementor-element-432c0fa .elementor-widget-text-editor h2"] },
+        { "id": "rc10", "name": "Contact CTA and testimonial", "selector": ".elementor-element-8a970b0", "style": "light-grey", "blocks": ["columns-contact"], "defaultContent": [] }
+      ]
+    }
+  ]
+}

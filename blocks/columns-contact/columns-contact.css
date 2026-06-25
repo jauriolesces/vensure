@@ -1,0 +1,140 @@
+/* Block: columns-contact
+ * Visual design migrated from vensure.com homepage (.elementor-element-8a970b0).
+ * Two equal-width white cards on a light page band:
+ *   Left  card: portrait image, H3, paragraph, "Contact Us" outline button.
+ *   Right card: italic testimonial quote, "Client Stories" outline button, video thumbnail.
+ * All values below come from getComputedStyle on the source elements.
+ */
+
+/* --- Cells become white cards --- */
+.columns-contact > div > div {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 15%) 0 5px 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  /* mobile: comfortable uniform padding; desktop adds the asymmetric source padding */
+  padding: 32px;
+}
+
+/* --- Typography (source #6c6f70 == --text-color) --- */
+.columns-contact h3 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+  color: var(--text-color);
+}
+
+.columns-contact p {
+  margin: 0 0 18px;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--text-color);
+}
+
+/* Emphasized testimonial quote */
+.columns-contact em {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 26px;
+  color: var(--text-color);
+}
+
+/* --- Images --- */
+
+/* Left portrait image (source 160x240) and right video thumbnail (source 180x277).
+   Source applies no border-radius. EDS wraps these in <p>, so reset that paragraph. */
+.columns-contact picture {
+  display: inline-block;
+  line-height: 0;
+}
+
+.columns-contact picture img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Left image is small/portrait in source (max-width 160px) */
+.columns-contact > div > div:first-child img {
+  max-width: 160px;
+}
+
+/* Right video thumbnail keeps its larger natural size (max-width 180px in source) */
+.columns-contact > div > div:last-child a img {
+  max-width: 180px;
+}
+
+/* The paragraph that only wraps an image should not carry the default text margin */
+.columns-contact p:has(> picture),
+.columns-contact p:has(> a > picture) {
+  margin: 0;
+  line-height: 0;
+}
+
+/* --- Outline buttons (Contact Us / Client Stories) ---
+ * EDS auto-decorates standalone <p><a> links into a.button (solid orange in styles.css).
+ * Source style is a transparent OUTLINE button with an accent border.
+ * Override with selector specificity that meets/exceeds `a.button:any-link`.
+ */
+main .columns-contact a.button:any-link {
+  margin: 0;
+  border: 2px solid rgb(227 83 15);
+  border-radius: 5px;
+  padding: 13px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+main .columns-contact a.button:any-link:hover,
+main .columns-contact a.button:any-link:focus {
+  background-color: rgb(227 83 15);
+  color: #fff;
+}
+
+/* The button-container wrapper EDS inserts: align buttons to the start, no extra margin */
+.columns-contact .button-container {
+  margin: 0;
+}
+
+/* --- Layout --- */
+
+/* Mobile-first: stacked columns */
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-contact > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  /* Two equal-width cards side by side with the source 60px gap */
+  .columns-contact > div {
+    flex-direction: row;
+    gap: 60px;
+    align-items: stretch;
+  }
+
+  /* Source band vertical rhythm (inner padding 80px 0) */
+  .columns-contact {
+    padding: 40px 0;
+  }
+
+  /* Equal columns; source uses 50px card padding (asymmetric in source to
+     reserve space for an overhanging image; uniform here since EDS images
+     sit in normal flow). */
+  .columns-contact > div > div {
+    flex: 1 1 0;
+    padding: 50px;
+  }
+}

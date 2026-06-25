@@ -1,0 +1,170 @@
+/*
+ * Video Process block
+ * Visual design migrated from https://vensure.com/ ("Understanding Our Process").
+ * Source: Elementor video widget with image overlay + custom play icon.
+ * All values below are taken from getComputedStyle on the source element.
+ */
+
+.video-process {
+  text-align: center;
+  max-width: 1116px;          /* source poster/overlay rendered width */
+  margin: 24px auto;
+}
+
+.video-process[data-embed-loaded='false']:not(.placeholder) {
+  /* reserve approximate space to avoid layout shift before embed loads */
+  aspect-ratio: 16 / 9;
+}
+
+.video-process > div {
+  display: flex;
+  justify-content: center;
+}
+
+.video-process video {
+  max-width: 100%;
+}
+
+/* --- Poster / placeholder image (source: object-fit cover, 16:9, no radius, no overlay) --- */
+.video-process .video-process-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* exact source aspect-ratio */
+  cursor: pointer;
+}
+
+.video-process .video-process-placeholder > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.video-process[data-embed-loaded='true'] .video-process-placeholder,
+.video-process[data-embed-loaded='false'] .video-process-placeholder + * {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+.video-process .video-process-placeholder picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.video-process .video-process-placeholder picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* source: object-fit: cover */
+  border-radius: 0;            /* source: no border-radius */
+}
+
+/*
+ * --- Play button overlay ---
+ * Source SVG: viewBox 0 0 60 60 rendered at 100x100px, centered.
+ *   - soft halo: circle r=30 (full), fill #e3530f, opacity .3
+ *   - solid disc: circle r=22.3 (=> ~74.3% => ~74px), fill #e3530f
+ *   - triangle: white (#fff), pointing right
+ *   - drop-shadow: rgba(0,0,0,.3) 1px 0 6px
+ * No dark overlay sits over the poster on the source.
+ */
+.video-process .video-process-placeholder-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-process .video-process-placeholder-play button {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 74px;                 /* solid orange disc (r=22.3 of 100px) */
+  height: 74px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #e3530f;   /* source accent orange */
+
+  /* soft translucent halo extending the disc out to the full 100px circle */
+  box-shadow: 0 0 0 13px rgb(227 83 15 / 30%);
+
+  /* source drop-shadow on the icon */
+  filter: drop-shadow(1px 0 6px rgb(0 0 0 / 30%));
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.video-process .video-process-placeholder-play button:hover,
+.video-process .video-process-placeholder-play button:focus {
+  background-color: #e3530f;
+  transform: scale(1.05);
+}
+
+/* white right-pointing triangle (source path fill #fff) */
+.video-process .video-process-placeholder-play button::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 18px solid #fff;
+  transform: translate(-50%, -50%);
+}
+
+@media (width >= 900px) {
+  .video-process .video-process-placeholder-play button {
+    /* source renders icon at 100px; disc ~74px, halo to 100px */
+    width: 74px;
+    height: 74px;
+    box-shadow: 0 0 0 13px rgb(227 83 15 / 30%);
+  }
+}
+
+/* Decorative corner graphic from the source "Understanding Our Process" section.
+   On vensure.com this is a CSS background on the section container, pinned to the
+   bottom-right, 180px, behind the heading + video. Re-applied here on the section
+   wrapper (the inline <img> the importer would create is stripped in the cleanup
+   transformer). */
+main .section.video-process-container {
+  position: relative;
+}
+
+main .section.video-process-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 180px;
+  background: url('/content/images/banner-corner-right.png') no-repeat 100% 100%;
+  background-size: 180px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main .section.video-process-container > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Full Width option (Universal Editor "Layout → Full Width"): the video spans
+   the entire screen width instead of the default 1116px centered column.
+   Breaks out of the section's max-width via 100vw. */
+.video-process.full-width {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.video-process.full-width .video-process-placeholder img {
+  width: 100%;
+}

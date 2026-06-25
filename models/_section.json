@@ -26,13 +26,23 @@
           "description": "The label shown for this section in the Content Tree"
         },
         {
-          "component": "multiselect",
+          "component": "select",
           "name": "style",
-          "label": "Style",
+          "label": "Background Color",
+          "description": "Background color for this section",
+          "value": "section-bg-white",
           "options": [
             {
-              "name": "Highlight",
-              "value": "highlight"
+              "name": "White (default)",
+              "value": "section-bg-white"
+            },
+            {
+              "name": "Gray",
+              "value": "section-bg-gray"
+            },
+            {
+              "name": "Orange",
+              "value": "section-bg-orange"
             }
           ]
         }

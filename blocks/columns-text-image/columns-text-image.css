@@ -1,0 +1,65 @@
+/* Block: columns-text-image
+ * Visual design migrated from https://vensure.com/ (.elementor-element-e9ed42f).
+ * Values extracted from source computed styles — see migration-work/columns-text-image-extracted.css.
+ */
+
+/* ---- Mobile-first: single column, image below text ---- */
+.columns-text-image > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Heading: source uses weight 700 (lighter than global 800) and 44px line-height */
+.columns-text-image h2 {
+  margin: 5px 0 10px;
+  font-weight: 700;
+  line-height: 1.1; /* 40px font -> ~44px on source */
+  text-transform: none;
+}
+
+/* Paragraph matches global main p (18px / 26px), restate margin for clarity */
+.columns-text-image p {
+  margin: 0 0 18px;
+  font-size: var(--body-font-size-m);
+  line-height: 1.45;
+}
+
+/* Image column: image capped and centered within its column */
+.columns-text-image .columns-text-image-img-col {
+  display: flex;
+  justify-content: center;
+}
+
+.columns-text-image img,
+.columns-text-image .columns-text-image-img-col img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 0;
+}
+
+/* On mobile, the EDS-wrapped <p> around the image should not add default p margin */
+.columns-text-image .columns-text-image-img-col p {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* ---- Desktop: two equal columns side by side ---- */
+@media (width >= 900px) {
+  .columns-text-image > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 50px 0;
+  }
+
+  /* Equal 50/50 split (source: 540px / 540px within 1140px container) */
+  .columns-text-image > div > div {
+    flex: 1;
+    min-width: 0;
+  }
+}

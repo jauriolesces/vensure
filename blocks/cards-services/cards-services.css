@@ -1,0 +1,122 @@
+/* Block: cards-services -- CSS extracted from source computed styles (https://vensure.com/) */
+
+/* Horizontal row of 5 service link items: a white circular icon badge above a
+   two-line uppercase label. The row overlaps the hero above it. */
+
+/* Block: transparent flex column, pulled up to overlap the hero. */
+.cards-services {
+  position: relative;
+  margin-top: -75px;
+  background-color: transparent;
+}
+
+/* Row: 5 items spread evenly. Wraps on small screens. */
+.cards-services > ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 0;
+  padding: 0 0 50px;
+}
+
+/* Each service item: vertical stack (icon over label), centered. */
+.cards-services > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 200px;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+/* Icon badge: white circle with soft shadow. The authored image cell holds the
+   icon; sized as a fixed circle even when the icon is an <img>/<picture>. */
+.cards-services .cards-services-card-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 165px;
+  height: 165px;
+  padding: 40px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  box-shadow: rgb(231 231 231 / 75%) 0 5px 20px 0;
+  line-height: 0;
+}
+
+/* Icon graphic (svg/img) inside the badge: 85px, accent-orange. */
+.cards-services .cards-services-card-image svg,
+.cards-services .cards-services-card-image img {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+}
+
+.cards-services .cards-services-card-image svg path {
+  fill: rgb(245 126 50);
+}
+
+/* Label: bold, uppercase, centered, two lines. */
+.cards-services .cards-services-card-body {
+  margin: 0;
+  text-align: center;
+}
+
+.cards-services .cards-services-card-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--link-color);
+}
+
+/* The label is a single link, so EDS wraps it as a.button. Strip the global
+   solid-orange button styling — the source renders a plain uppercase text label. */
+.cards-services .cards-services-card-body .button-container {
+  margin: 0;
+}
+
+.cards-services .cards-services-card-body a.button:any-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--link-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: normal;
+}
+
+.cards-services .cards-services-card-body a.button:hover {
+  background: none;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* Desktop: items spread edge-to-edge across the content row (source: 5x200px
+   in a 1000px row with space-between). */
+@media (width >= 900px) {
+  .cards-services > ul {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
